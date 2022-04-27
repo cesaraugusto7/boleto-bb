@@ -22,8 +22,8 @@ var boleto = new Boleto({
   'codigo': "001", // código do Banco do Brasil
   'cedente': "Nome do beneficiário", // nome do beneficiário
   'cedente_cnpj': "18727053000174", // sem pontos e traços
-  'codigo_cedente': "6404154" // codigo da carteira do beneficiário
-  'carteira':"102" // carteira do beneficiário
+  'codigo_cedente': "6404154", // codigo da carteira do beneficiário
+  'carteira':"102", // carteira do beneficiário
   'agencia': "3978", // agência do beneficiário
   'nosso_numero': "1234567",
   'numero_documento': "123123",
