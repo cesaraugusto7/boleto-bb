@@ -516,19 +516,19 @@
             </tr>
             <tr class="cp h12 rBb Ab">
                 <td>
-                    <%= formatAmount(boleto['desconto']) %>
+                    <%= boleto['desconto'] ? formatAmount(boleto['desconto']) : '' %>
                 </td>
                 <td>
-                    <%= formatAmount(boleto['deducoes']) %>
+                    <%= boleto['deducoes'] ? formatAmount(boleto['deducoes']) : '' %>
                 </td>
                 <td>
-                    <%= formatAmount(boleto['mora_multa']) %>
+                    <%= boleto['mora_multa'] ? formatAmount(boleto['mora_multa']) : '' %>
                 </td>
                 <td>
-                    <%= formatAmount(boleto['acrescimo']) %>
+                    <%= boleto['acrescimo'] ? formatAmount(boleto['acrescimo']) : '' %>
                 </td>
                 <td class="Ar">
-                    <%= formatAmount(boleto['valor_cobrado']) %>
+                    <%= boleto['valor_cobrado'] ? formatAmount(boleto['valor_cobrado']) : '' %>
                 </td>
             </tr>
         </table>
@@ -681,23 +681,23 @@
                 <td class="w186">
                     <div class="t">(-) Desconto / Abatimentos</div>
                     <div class="c BB">
-                        <%= formatAmount(boleto['desconto']) %>
+                        <%= boleto['desconto'] ? formatAmount(boleto['desconto']) : '' %>
                     </div>
                     <div class="t">(-) Outras deduções</div>
                     <div class="c BB">
-                        <%= formatAmount(boleto['deducoes']) %>
+                        <%= boleto['deducoes'] ? formatAmount(boleto['deducoes']) : '' %>
                     </div>
                     <div class="t">(+) Mora / Multa</div>
                     <div class="c BB">
-                        <%= formatAmount(boleto['mora_multa']) %>
+                        <%= boleto['mora_multa'] ? formatAmount(boleto['mora_multa']) : '' %>
                     </div>
                     <div class="t">(+) Outros acréscimos</div>
                     <div class="c BB">
-                        <%= formatAmount(boleto['acrescimo']) %>
+                        <%= boleto['mora_multa'] ? formatAmount(boleto['acrescimo']) : '' %>
                     </div>
                     <div class="t">(=) Valor cobrado</div>
                     <div class="c">
-                        <%= formatAmount(boleto['valor_cobrado']) %>
+                        <%= boleto['valor_cobrado'] ? formatAmount(boleto['valor_cobrado']) : '' %>
                     </div>
                 </td>
             </tr>
