@@ -1,0 +1,46 @@
+{
+  "name": "boleto-bb",
+  "version": "1.0.1",
+  "description": "Pacote que gera ficha de compensação e retorna um html da mesma",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesaraugusto7/boleto-bb.git"
+  },
+  "keywords": [
+    "boleto",
+    "banco",
+    "do",
+    "brasil"
+  ],
+  "dependencies": {
+    "ejs": "2.5.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-datetime": "^1.4.1",
+    "chai-string": "^1.3.0",
+    "chai-subset": "^1.4.0",
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "mocha": "^3.2.0",
+    "moment": "https://github.com/pagarme/moment/archive/0.0.5.tar.gz",
+    "nyc": "15.1.0",
+    "ramda": "^0.23.0"
+  },
+  "author": "César Augusto Q de Carvalho <cesaraugusto.dev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cesaraugusto7/boleto-bb/issues"
+  },
+  "homepage": "https://github.com/cesaraugusto7/boleto-bb#readme"
+}
