@@ -13,10 +13,9 @@ class Boleto {
       // eslint-disable-next-line no-throw-literal
       throw 'No options provided initializing Boleto.';
     }
-
     this.options = options;
-    this.options.data_emissao = moment(moment(options.data_emissao).utc().format('YYYY-MM-DD'));
-    this.options.data_vencimento = moment(moment(options.data_vencimento).utc().format('YYYY-MM-DD'));
+    this.options.data_emissao = moment(options.data_emissao).format("DD/MM/YYYY");
+    this.options.data_vencimento = moment(options.data_vencimento).format("DD/MM/YYYY")
 
     Object.keys(this.options).forEach((key) => {
       this[key] = this.options[key];
@@ -61,13 +60,13 @@ class Boleto {
       renderOptions[key] = formatters[key];
     });
 
-    renderOptions.barcode_render_engine = Boleto.barcodeRenderEngine;
+    renderOptions.barcode_render_engine = self.options?.barcodeRenderEngine ? self.options.barcodeRenderEngine : 'img';
     renderOptions.barcode_height = '50';
 
-    if (Boleto.barcodeRenderEngine === 'bmp') {
-      renderOptions.barcode_data = barcode.bmpLineForBarcodeData(self.barcode_data);
-    } else if (Boleto.barcodeRenderEngine === 'img') {
-      renderOptions.barcode_data = barcode.binaryRepresentationForBarcodeData(self.barcode_data);
+    if (renderOptions.barcode_render_engine === 'bmp') {
+      renderOptions.barcode_data = barcode.bmpLineForBarcodeData(self.options.barcode_data);
+    } else if (renderOptions.barcode_render_engine === 'img') {
+      renderOptions.barcode_data = barcode.binaryRepresentationForBarcodeData(self.options.barcode_data);
     }
 
     // eslint-disable-next-line max-len

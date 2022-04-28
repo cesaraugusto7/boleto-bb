@@ -11,21 +11,28 @@ var options = {
 }
 
 var boleto = new Boleto({
-  'logoURL': 'https://www.bb.com.br/pbb/img.ImgWriter?codigo=40846&origem=CCI&v=202005051_',
-  'codigo': '001',
-  'banco': 'bb', // nome do banco dentro da pasta 'banks'
-  'data_emissao': new Date(),
-  'data_vencimento': new Date(new Date().getTime() + 5 * 24 * 3600 * 1000), // 5 dias futuramente
-  'valor': 12000, // R$ 15,00 (valor em centavos)
-  'nosso_numero': '1234567',
-  'numero_documento': '123123',
-  'cedente': 'Pagar.me Pagamentos S/A',
-  'cedente_cnpj': '18727053000174', // sem pontos e traços
-  'agencia': '3978',
-  'codigo_cedente': '6404154', // PSK (código da carteira)
-  'carteira': '102',
-  'barcodeRenderEngine': 'img',
-  'local_de_pagamento': 'Pagável em qualquer banco.'
+  'codigo': "001", // código do Banco do Brasil
+  'cedente': "Nome do beneficiário", // nome do beneficiário
+  'cedente_cnpj': "18727053000174", // sem pontos e traços
+  'codigo_cedente': "6404154", // codigo da carteira do beneficiário
+  'carteira': "102", // carteira do beneficiário
+  'agencia': "3978", // agência do beneficiário
+  'nosso_numero': "1234567",
+  'numero_documento': "123123",
+  'barcode_data': "1231231238987837181987238123123123",
+  'linha_digitavel': "1231809718723018723871287301827381723817",
+  'data_emissao': '2022-04-23', // data em que o boleto está sendo emitido/gerado
+  'data_vencimento': '2022-04-25', //data de vencimento do boleto
+  'sacado': 'César Augusto Quinteiro de Carvalho', // inforamções relacionadas ao pagador
+  'aceite': '', // S-SIM ou N-Não, caso não informado o campo ficará como String vazia.
+  'especie_doc': '', //  caso não informado o campo ficará como String vazia.
+  'valor': 1500, // R$ 15,00 (valor em centavos) valor do boleto
+  'desconto': 500, // R$ 5,00 (valor em centavos) desconto do boleto
+  'deducoes': 100, // R$ 1,00 (valor em centavos) deduções no valor do boleto
+  'mora_multa': 100, // R$ 1,00 (valor em centavos) mora/multa do boleto
+  'acrescimo': 100, // R$ 1,00 (valor em centavos) acrescimo no valor do boleto
+  'valor_cobrado': 1100, // R$ 11,00 (valor em centavos) valor a ser cobrado ja feita as deduções,acrescimos,mutas,descontos
+  'instrucoes': 'Em caso de atraso favor não aceitar sobe pena de multa', // instruções relacionadas ao cedente
 })
 
 boleto.renderHTML((html) => {

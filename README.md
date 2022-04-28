@@ -18,7 +18,6 @@ Emitindo um boleto:
 ```javascript
 var Boleto = require('boleto-bb');  
 var boleto = new Boleto({
-  'logoURL': "https://www.bb.com.br/pbb/img.ImgWriter?codigo=40846&origem=CCI&v=202005051_", // logo do Banco do Brasil para o boleto
   'codigo': "001", // código do Banco do Brasil
   'cedente': "Nome do beneficiário", // nome do beneficiário
   'cedente_cnpj': "18727053000174", // sem pontos e traços
@@ -28,15 +27,19 @@ var boleto = new Boleto({
   'nosso_numero': "1234567",
   'numero_documento': "123123",
   'barcode_data': "1231231238987837181987238123123123",
-  'linha_digitavel': "1231809718723018723871287301827381723817"
-  'data_emissao': new Date(), // data em que o boleto está sendo emitido/gerado
-  'data_vencimento': new Date(new Date().getTime() + 5 * 24 * 3600 * 1000), // 5 dias futuramente
+  'linha_digitavel': "1231809718723018723871287301827381723817",
+  'data_emissao': '2022-04-23', // data em que o boleto está sendo emitido/gerado
+  'data_vencimento': '2022-04-25', //data de vencimento do boleto
+  'sacado': 'César Augusto Quinteiro de Carvalho', // inforamções relacionadas ao pagador
+  'aceite': 'S', // S-SIM ou N-Não, caso não informado o campo ficará como String vazia.
+  'especie_doc': 'DM', //  caso não informado o campo ficará como String vazia.
   'valor': 1500, // R$ 15,00 (valor em centavos) valor do boleto
   'desconto': 500, // R$ 5,00 (valor em centavos) desconto do boleto
   'deducoes': 100, // R$ 1,00 (valor em centavos) deduções no valor do boleto
   'mora_multa': 100, // R$ 1,00 (valor em centavos) mora/multa do boleto
   'acrescimo': 100, // R$ 1,00 (valor em centavos) acrescimo no valor do boleto
   'valor_cobrado': 1100, // R$ 11,00 (valor em centavos) valor a ser cobrado ja feita as deduções,acrescimos,mutas,descontos
+  'instrucoes': 'Instruções (Texto de responsabilidade do Cedente)', // instruções relacionadas ao cedente
 });
 console.log("Linha digitável: " + boleto['linha_digitavel'])
 boleto.renderHTML(function(html){

@@ -33,9 +33,10 @@
     "eslint-plugin-promise": "^3.3.0",
     "eslint-plugin-standard": "^2.0.1",
     "mocha": "^3.2.0",
-    "moment": "https://github.com/pagarme/moment/archive/0.0.5.tar.gz",
     "nyc": "15.1.0",
-    "ramda": "^0.23.0"
+    "ramda": "^0.23.0",
+    "html-pdf": "^3.0.1",
+    "moment": "^2.29.3"
   },
   "author": "César Augusto Q de Carvalho <cesaraugusto.dev@gmail.com>",
   "license": "MIT",
