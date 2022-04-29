@@ -32,10 +32,11 @@ var boleto = new Boleto({
   'mora_multa': 100, // R$ 1,00 (valor em centavos) mora/multa do boleto
   'acrescimo': 100, // R$ 1,00 (valor em centavos) acrescimo no valor do boleto
   'valor_cobrado': 1100, // R$ 11,00 (valor em centavos) valor a ser cobrado ja feita as deduções,acrescimos,mutas,descontos
-  'instrucoes': 'Em caso de atraso favor não aceitar sobe pena de multa', // instruções relacionadas ao cedente
+  'instrucoes': `Boleto sem desconto. Considerar o v alor do documento.\nPara pagamentos com cheque, o título de capitalização será gerado apos a compensação do cheque.\nNão pagar apos a data de v encimento. Ultrapassado o v encimento, a proposta é cancelada.\nEm caso de dúv idas, entre em contato com a Central de Atendimento Brasilcap pelo 08007290929`, // instruções relacionadas ao cedente
 })
 
 boleto.renderHTML((html) => {
+  console.log(html)
   pdf.create(html, options).toFile('./businesscard.pdf', (err, res) => {
     if (err) return console.log(err);
     console.log(res); // { filename: '/app/businesscard.pdf' }
