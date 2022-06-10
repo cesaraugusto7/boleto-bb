@@ -32,7 +32,8 @@ var boleto = new Boleto({
   'mora_multa': 100, // R$ 1,00 (valor em centavos) mora/multa do boleto
   'acrescimo': 100, // R$ 1,00 (valor em centavos) acrescimo no valor do boleto
   'valor_cobrado': 1100, // R$ 11,00 (valor em centavos) valor a ser cobrado ja feita as deduções,acrescimos,mutas,descontos
-  'instrucoes': `Boleto sem desconto. Considerar o v alor do documento.\nPara pagamentos com cheque, o título de capitalização será gerado apos a compensação do cheque.\nNão pagar apos a data de v encimento. Ultrapassado o v encimento, a proposta é cancelada.\nEm caso de dúv idas, entre em contato com a Central de Atendimento Brasilcap pelo 08007290929`, // instruções relacionadas ao cedente
+  'instrucoes': `Boleto sem desconto. Considerar o v alor do documento.\nPara pagamentos com cheque, o título de capitalização será gerado apos a compensação do cheque.\nNão pagar apos a data de v encimento. Ultrapassado o v encimento, a proposta é cancelada.\nEm caso de dúv idas, entre em contato com a Central de Atendimento Brasilcap pelo 08007290929`,
+  'emv': '00020101021226920014br.gov.bcb.pix2570qrcodepix-h.bb.com.br/pix/v2/cobv/cd817af0-ad49-4b19-a8de-e532b478cbee5204000053039865406120.005802BR5925EMPRORT AMBIENTAL        6008BRASILIA62070503***6304A95B' // instruções relacionadas ao cedente
 })
 
 boleto.renderHTML((html) => {
