@@ -20,7 +20,8 @@ var Boleto = require('boleto-bb');
 var boleto = new Boleto({
   'codigo': "001", // código do Banco do Brasil
   'cedente': "Nome do beneficiário", // nome do beneficiário
-  'cedente_cnpj': "18727053000174", // sem pontos e traços
+  'cedente_cnpj': "18727053000174",
+  'local_de_pagamento':'Pagável em qualquer agência bancária até o vencimento', // local de pagamento
   'codigo_cedente': "6404154", // codigo da carteira do beneficiário
   'carteira':"102", // carteira do beneficiário
   'agencia': "3978", // agência do beneficiário
@@ -40,6 +41,11 @@ var boleto = new Boleto({
   'acrescimo': 100, // R$ 1,00 (valor em centavos) acrescimo no valor do boleto
   'valor_cobrado': 1100, // R$ 11,00 (valor em centavos) valor a ser cobrado ja feita as deduções,acrescimos,mutas,descontos
   'instrucoes': 'Instruções (Texto de responsabilidade do Cedente)', // instruções relacionadas ao cedente
+  'emv':'', //String gerada para pagamento via pix, quando informada gera uma seção com QRCode para pagamento via PIX
+  'titulo_pix': 'Lorem ipsum dolor sit amet', // Título da seção  PIX (42 caracteres)
+  'texto1_pix': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod', // Texto 1 da seção  PIX (120 caracteres)
+  'texto2_pix': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod', // Texto 2 da seção  PIX (120 caracteres)
+  'texto3_pix': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod', // Texto 3 da seção  PIX (120 caracteres)
 });
 console.log("Linha digitável: " + boleto['linha_digitavel'])
 boleto.renderHTML(function(html){

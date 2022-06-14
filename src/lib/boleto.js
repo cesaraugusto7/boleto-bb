@@ -3,7 +3,8 @@ const path = require('path');
 const moment = require('moment');
 const formatters = require('./formatters');
 const barcode = require('./barcode');
-const boletoUtil = require('../utils/boletoUtil')
+const boletoUtil = require('../utils/boletoUtil');
+
 
 class Boleto {
   constructor(options) {
@@ -27,6 +28,7 @@ class Boleto {
   }
 
   _calculate() {
+
     this.codigo_banco = `${this.options.codigo}-${formatters.mod11(this.options.codigo)}`;
     this.nosso_numero_dv = formatters.mod11(this.nosso_numero.toString());
     this.barcode_data = this.options.barcode_data ? this.options.barcode_data : boletoUtil.barcodeData(this);
@@ -50,11 +52,14 @@ class Boleto {
     return hash;
   }
 
-  renderHTML(callback) {
+  async renderHTML(callback) {
     const self = this;
-
     const renderOptions = self.options;
     renderOptions.boleto = self;
+
+    if (renderOptions.boleto.emv != '') {
+      renderOptions.boleto.emv = await boletoUtil.qrcodePix(renderOptions.boleto.emv);
+    }
 
     Object.keys(formatters).forEach((key) => {
       renderOptions[key] = formatters[key];

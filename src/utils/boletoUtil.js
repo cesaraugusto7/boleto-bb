@@ -1,6 +1,7 @@
 const moment = require('moment')
 var formatters = require('../lib/formatters')
-var ediHelper = require('../lib/edi-helper')
+var ediHelper = require('../lib/edi-helper');
+const QRCode = require('qrcode');
 
 class BoletoUtil {
   barcodeData(boleto) {
@@ -75,6 +76,11 @@ class BoletoUtil {
   dvBarra(barra) {
     var resto2 = formatters.mod11(barra, 9, 1)
     return (resto2 == 0 || resto2 == 1 || resto2 == 10) ? 1 : 11 - resto2
+  }
+  qrcodePix(emv) {
+    return new Promise((resolve, reject) => {
+      QRCode.toDataURL(emv, (err, url) => resolve(url))
+    });
   }
 }
 

@@ -14,6 +14,7 @@ var boleto = new Boleto({
   'codigo': "001", // código do Banco do Brasil
   'cedente': "Nome do beneficiário", // nome do beneficiário
   'cedente_cnpj': "18727053000174", // sem pontos e traços
+  'local_de_pagamento': 'Pagável em qualquer agência bancária até o vencimento', // local de pagamento
   'codigo_cedente': "6404154", // codigo da carteira do beneficiário
   'carteira': "102", // carteira do beneficiário
   'agencia': "3978", // agência do beneficiário
@@ -33,7 +34,11 @@ var boleto = new Boleto({
   'acrescimo': 100, // R$ 1,00 (valor em centavos) acrescimo no valor do boleto
   'valor_cobrado': 1100, // R$ 11,00 (valor em centavos) valor a ser cobrado ja feita as deduções,acrescimos,mutas,descontos
   'instrucoes': `Boleto sem desconto. Considerar o v alor do documento.\nPara pagamentos com cheque, o título de capitalização será gerado apos a compensação do cheque.\nNão pagar apos a data de v encimento. Ultrapassado o v encimento, a proposta é cancelada.\nEm caso de dúv idas, entre em contato com a Central de Atendimento Brasilcap pelo 08007290929`,
-  'emv': '00020101021226920014br.gov.bcb.pix2570qrcodepix-h.bb.com.br/pix/v2/cobv/cd817af0-ad49-4b19-a8de-e532b478cbee5204000053039865406120.005802BR5925EMPRORT AMBIENTAL        6008BRASILIA62070503***6304A95B' // instruções relacionadas ao cedente
+  'emv': '00020101021226920014br.gov.bcb.pix2570qrcodepix-h.bb.com.br/pix/v2/cobv/cd817af0-ad49-4b19-a8de-e532b478cbee5204000053039865406120.005802BR5925EMPRORT AMBIENTAL        6008BRASILIA62070503***6304A95B', //String gerada para pagamento via pix, quando informada gera uma seção com QRCode para pagamento via PIX
+  'titulo_pix': 'Lorem ipsum dolor sit amet', // Título da seção  PIX (42 caracteres)
+  'texto1_pix': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod', // Texto 1 da seção  PIX (120 caracteres)
+  'texto2_pix': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod', // Texto 2 da seção  PIX (120 caracteres)
+  'texto3_pix': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod', // Texto 3 da seção  PIX (120 caracteres)
 })
 
 boleto.renderHTML((html) => {
