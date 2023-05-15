@@ -1,2 +1,4 @@
-exports.Boleto = require('./src/lib/boleto');
+const Boleto = require('./src/lib/boleto');
+module.exports = Boleto;
+
 
