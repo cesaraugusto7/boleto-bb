@@ -21,7 +21,8 @@
     "brasil"
   ],
   "dependencies": {
-    "ejs": "2.5.5"
+    "ejs": "2.5.5",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
